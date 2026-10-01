@@ -1,0 +1,51 @@
+ 
+.hero-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #f5f1ed;
+}
+
+/* Entire banner is clickable */
+.hero-banner-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Picture fills the banner */
+.hero-banner-picture {
+  display: block;
+  width: 100%;
+}
+
+/* Desktop image */
+.hero-banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .hero-banner-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+  .hero-banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+} 

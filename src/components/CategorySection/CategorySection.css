@@ -1,0 +1,274 @@
+.category-section {
+  width: 100%;
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.category-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.category-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 38px;
+}
+
+.category-eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: #7d1d2b;
+}
+
+.category-heading h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #222222;
+}
+
+.category-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding-bottom: 5px;
+
+  border-bottom: 1px solid #222222;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: #222222;
+
+  transition: all 0.25s ease;
+}
+
+.category-view-all:hover {
+  color: #7d1d2b;
+  border-color: #7d1d2b;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.category-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 16px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.category-card {
+  display: block;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #f4f0ed;
+  border-radius: 8px;
+}
+
+.category-image-wrapper {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 0.72;
+
+  overflow: hidden;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.category-card:hover .category-image {
+  transform: scale(1.06);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.category-content {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 25px 22px;
+
+  color: #ffffff;
+}
+
+.category-subtitle {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 11px;
+  letter-spacing: 1px;
+
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.category-content h3 {
+  margin: 0 0 13px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 28px;
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+.category-shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #ffffff;
+
+  opacity: 0.9;
+
+  transition: gap 0.25s ease;
+}
+
+.category-card:hover .category-shop {
+  gap: 11px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+  .category-container {
+    padding: 0 25px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .category-card:nth-child(4),
+  .category-card:nth-child(5) {
+    display: none;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+  .category-section {
+    padding: 60px 0;
+  }
+
+  .category-container {
+    padding: 0 18px;
+  }
+
+  .category-heading {
+    align-items: flex-end;
+    margin-bottom: 25px;
+  }
+
+  .category-heading h2 {
+    font-size: 32px;
+  }
+
+  .category-eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .category-view-all {
+    font-size: 12px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .category-card:nth-child(4),
+  .category-card:nth-child(5) {
+    display: block;
+  }
+
+  .category-image-wrapper {
+    aspect-ratio: 0.75;
+  }
+
+  .category-content {
+    padding: 18px 15px;
+  }
+
+  .category-subtitle {
+    font-size: 9px;
+    margin-bottom: 5px;
+  }
+
+  .category-content h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .category-shop {
+    font-size: 10px;
+  }
+
+}

@@ -1,0 +1,162 @@
+.best-sellers {
+  width: 100%;
+  padding: 90px 5%;
+  background: #faf8f6;
+}
+
+/* =========================
+   SECTION HEADING
+========================= */
+
+.best-sellers .section-heading {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.best-sellers .section-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  color: #7d1d2b;
+}
+
+.best-sellers .section-heading h2 {
+  margin: 0 0 15px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.2;
+
+  color: #222222;
+}
+
+.best-sellers .section-heading p {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: #777777;
+}
+
+/* =========================
+   PRODUCTS GRID
+========================= */
+
+.best-sellers .products-grid {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 28px;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.best-sellers .products-loading {
+  min-height: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  color: #777777;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.best-sellers .products-error {
+  min-height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  color: #7d1d2b;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .best-sellers {
+    padding: 75px 4%;
+  }
+
+  .best-sellers .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .best-sellers .section-heading h2 {
+    font-size: 36px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .best-sellers {
+    padding: 60px 20px;
+  }
+
+  .best-sellers .section-heading {
+    margin-bottom: 35px;
+  }
+
+  .best-sellers .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+  }
+
+  .best-sellers .section-heading h2 {
+    font-size: 32px;
+  }
+
+  .best-sellers .section-heading p {
+    font-size: 14px;
+  }
+
+  .best-sellers .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .best-sellers {
+    padding: 50px 14px;
+  }
+
+  .best-sellers .section-heading h2 {
+    font-size: 28px;
+  }
+
+  .best-sellers .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}

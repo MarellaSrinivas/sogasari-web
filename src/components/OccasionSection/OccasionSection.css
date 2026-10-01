@@ -1,0 +1,285 @@
+.occasion-section {
+  width: 100%;
+  padding: 95px 0;
+
+  background: #f7f4f1;
+}
+
+.occasion-container {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.occasion-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 40px;
+}
+
+.occasion-eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+
+  color: #7d1d2b;
+}
+
+.occasion-heading h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 42px;
+  font-weight: 400;
+
+  color: #222222;
+}
+
+.occasion-heading p {
+  max-width: 380px;
+
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.7;
+
+  color: #777777;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.occasion-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-rows: 330px 330px;
+
+  gap: 16px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.occasion-card {
+  position: relative;
+
+  display: block;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+/*
+  Wedding gets a large feature position
+*/
+
+.occasion-card-1 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/*
+  Bridal also gets larger width
+*/
+
+.occasion-card-4 {
+  grid-column: span 2;
+}
+
+.occasion-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.occasion-card:hover .occasion-image {
+  transform: scale(1.06);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.occasion-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    rgba(0, 0, 0, 0.02) 75%
+  );
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.occasion-content {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 30px;
+}
+
+.occasion-subtitle {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 11px;
+
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.occasion-content h3 {
+  margin: 0 0 13px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 34px;
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+.occasion-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #ffffff;
+
+  transition: gap 0.25s ease;
+}
+
+.occasion-card:hover .occasion-link {
+  gap: 11px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+  .occasion-container {
+    padding: 0 25px;
+  }
+
+  .occasion-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 300px);
+  }
+
+  .occasion-card-1 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .occasion-card-4 {
+    grid-column: span 1;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+  .occasion-section {
+    padding: 65px 0;
+  }
+
+  .occasion-container {
+    padding: 0 18px;
+  }
+
+  .occasion-heading {
+    display: block;
+
+    margin-bottom: 28px;
+  }
+
+  .occasion-heading h2 {
+    font-size: 32px;
+  }
+
+  .occasion-heading p {
+    margin-top: 14px;
+
+    font-size: 13px;
+  }
+
+  .occasion-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 220px 220px;
+
+    gap: 10px;
+  }
+
+  .occasion-card-1 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .occasion-card-2,
+  .occasion-card-3,
+  .occasion-card-4,
+  .occasion-card-5 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .occasion-content {
+    padding: 18px;
+  }
+
+  .occasion-subtitle {
+    font-size: 9px;
+    margin-bottom: 5px;
+  }
+
+  .occasion-content h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .occasion-link {
+    font-size: 10px;
+  }
+
+}
