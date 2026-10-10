@@ -5,6 +5,8 @@ import { ArrowLeft, LogOut, Package } from "lucide-react";
 import { sendOtp, verifyOtp } from "../../api/authApi";
 import "./Account.css";
 import Header from "../../components/Header/Header";
+import { syncWishlistAfterLogin } from "../../api/wishlistApi";
+
 
 function Account() {
   const navigate = useNavigate();
@@ -86,6 +88,17 @@ function Account() {
         "sogasari_token",
         response.accessToken
       );
+localStorage.setItem(
+  "sogasari_refresh_token",
+  response.refreshToken
+);
+
+// Merge the guest wishlist into the user's account.
+try {
+  await syncWishlistAfterLogin();
+} catch (error) {
+  console.error("Wishlist sync failed:", error);
+}
 
 
       const userData = {
@@ -137,6 +150,10 @@ window.dispatchEvent(
   const handleLogout = () => {
     localStorage.removeItem(
       "sogasari_token"
+    );
+
+      localStorage.removeItem(
+      "sogasari_refresh_token"
     );
 
     localStorage.removeItem(

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AdminAddProduct.css";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://sogasari.com";
 const generateSlug = (text) => {
   return text
     .toLowerCase()

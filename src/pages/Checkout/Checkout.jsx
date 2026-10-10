@@ -76,109 +76,94 @@ const [paymentLoading, setPaymentLoading] =
   // ==========================================
 
   const handlePhoneLookup = async () => {
+  if (!/^[6-9][0-9]{9}$/.test(phone)) {
+    setError("Enter a valid 10 digit mobile number.");
+    return;
+  }
 
-    if (!/^[6-9][0-9]{9}$/.test(phone)) {
-      setError(
-        "Enter a valid 10 digit mobile number."
-      );
-      return;
+  try {
+    setError("");
+    setLoadingCustomer(true);
+
+    const data = await getCustomerByPhone(phone);
+
+    // Existing customer
+    setCustomer(data);
+    setCustomerNotFound(false);
+    setCustomerChecked(true);
+
+    setName(data.name || "");
+    setEmail(data.email || "");
+
+    const defaultAddress = data.addresses?.find(
+      (item) => item.defaultAddress
+    );
+
+    if (defaultAddress) {
+      setSelectedAddressId(defaultAddress.id);
+
+      setAddress({
+        fullName: defaultAddress.fullName || "",
+        phone: defaultAddress.phone || phone,
+        addressLine1: defaultAddress.addressLine1 || "",
+        addressLine2: defaultAddress.addressLine2 || "",
+        city: defaultAddress.city || "",
+        state: defaultAddress.state || "",
+        pincode: defaultAddress.pincode || "",
+      });
+    } else {
+      setSelectedAddressId(null);
+
+      setAddress({
+        fullName: data.name || "",
+        phone: phone,
+        addressLine1: "",
+        addressLine2: "",
+        city: "",
+        state: "",
+        pincode: "",
+      });
     }
 
-    try {
+  } catch (err) {
 
-      setError("");
-      setLoadingCustomer(true);
+    // Customer does not exist → new customer
+    if (err.response?.status === 404) {
 
-      const data =
-        await getCustomerByPhone(phone);
-
-      setCustomer(data);
-
-      setCustomerNotFound(false);
+      setCustomer(null);
+      setCustomerNotFound(true);
       setCustomerChecked(true);
 
-      setName(data.name || "");
-      setEmail(data.email || "");
+      setName("");
+      setEmail("");
+      setSelectedAddressId(null);
 
-      const defaultAddress =
-        data.addresses?.find(
-          (item) =>
-            item.defaultAddress
-        );
+      setAddress({
+        fullName: "",
+        phone: phone,
+        addressLine1: "",
+        addressLine2: "",
+        city: "",
+        state: "",
+        pincode: "",
+      });
 
-      if (defaultAddress) {
+      setError("");
 
-        setSelectedAddressId(
-          defaultAddress.id
-        );
+    } else {
 
-        setAddress({
-          fullName:
-            defaultAddress.fullName || "",
+      console.error("Customer lookup failed:", err);
 
-          phone:
-            defaultAddress.phone ||
-            phone,
-
-          addressLine1:
-            defaultAddress.addressLine1 ||
-            "",
-
-          addressLine2:
-            defaultAddress.addressLine2 ||
-            "",
-
-          city:
-            defaultAddress.city ||
-            "",
-
-          state:
-            defaultAddress.state ||
-            "",
-
-          pincode:
-            defaultAddress.pincode ||
-            "",
-        });
-      }
-
-    } catch (error) {
-
-      if (
-        error.response?.status === 404
-      ) {
-
-        setCustomer(null);
-        setCustomerNotFound(true);
-        setCustomerChecked(true);
-
-        setAddress({
-          fullName: "",
-          phone,
-          addressLine1: "",
-          addressLine2: "",
-          city: "",
-          state: "",
-          pincode: "",
-        });
-
-      } else {
-
-        console.error(
-          "Customer lookup failed:",
-          error
-        );
-
-        setError(
-          "Unable to check customer. Please try again."
-        );
-      }
-
-    } finally {
-
-      setLoadingCustomer(false);
+      setError(
+        err.response?.data?.message ||
+        "Unable to check customer. Please try again."
+      );
     }
-  };
+
+  } finally {
+    setLoadingCustomer(false);
+  }
+};
 
 
   // ==========================================

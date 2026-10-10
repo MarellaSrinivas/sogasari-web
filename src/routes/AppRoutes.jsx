@@ -11,7 +11,7 @@ import Wishlist from "../pages/Wishlist/Wishlist";
 import ProductCategories from "../pages/ProductCategories/ProductCategories";
 import CategoryProducts from "../pages/CategoryProducts/CategoryProducts";
 
-
+import Products from "../pages/Products/Products";
 
 
 import AdminLogin from "../admin/pages/AdminLogin";
@@ -93,6 +93,8 @@ function AppRoutes() {
   path="/category/:slug"
   element={<CategoryProducts />}
 />
+
+<Route path="/products" element={<Products />} />
 
 
             {/* Admin Routes */}

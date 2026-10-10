@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AdminLogin.css";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://sogasari.com";
 
 function AdminLogin() {
   const navigate = useNavigate();
